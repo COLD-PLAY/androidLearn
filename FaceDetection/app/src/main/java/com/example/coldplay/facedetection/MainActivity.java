@@ -24,12 +24,10 @@ import org.opencv.objdetect.CascadeClassifier;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.lang.annotation.Retention;
-
 import static org.opencv.imgproc.Imgproc.rectangle;
 
 public class MainActivity extends AppCompatActivity
-    implements CameraBridgeViewBase.CvCameraViewListener {
+        implements CameraBridgeViewBase.CvCameraViewListener {
 
     private CameraBridgeViewBase openCvCameraView;
     private CascadeClassifier cascadeClassifier;
@@ -116,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         // If there are any faces found, draw a rectangle around it
         Rect[] facesArray = faces.toArray();
         for (int i = 0; i < facesArray.length; i++) {
-            rectangle(inputFrame, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0, 255), 3);
+            Imgproc.rectangle(inputFrame, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0, 255), 3);
         }
 
         return inputFrame;
